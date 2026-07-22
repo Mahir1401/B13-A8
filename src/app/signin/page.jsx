@@ -6,19 +6,20 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-const SignInPage = () => {
+export default function SignInPage() {
   const router = useRouter();
+  
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const useData = Object.fromEntries(formData.entries())
+    const useData = Object.fromEntries(formData.entries());
     toast.success("Successfully logged in!!");
     router.push("/");
     const { data, error } = await authClient.signIn.email({
       email: useData.email,
       password: useData.password,
     });
-    console.log(data, error)
+    console.log(data, error);
   };
 
   const handleGoogle = async () => {
@@ -26,7 +27,7 @@ const SignInPage = () => {
       provider: "google",
     });
     toast.success("Signed in with Google.");
-  }
+  };
 
   return (
     <section className="mx-auto flex max-w-md flex-col px-5 py-20">
@@ -73,11 +74,9 @@ const SignInPage = () => {
           <FieldError className="text-xs text-red-500 mt-1" />
         </TextField>
 
-        
-          <button type="submit" className="btn rounded-full bg-transparent uppercase tracking-widest">
-            Log In
-          </button>
-        
+        <button type="submit" className="btn rounded-full bg-transparent uppercase tracking-widest">
+          Log In
+        </button>
       </Form>
 
       <div className="my-6 flex items-center gap-3">
@@ -103,6 +102,4 @@ const SignInPage = () => {
       </p>
     </section>
   );
-};
-
-export default SignInPage;
+}
