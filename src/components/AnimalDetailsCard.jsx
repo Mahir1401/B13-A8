@@ -31,7 +31,7 @@ const AnimalDetailsCard = ({ animal }) => {
 
         <div className="flex flex-wrap gap-2 my-1">
           <span className="bg-[#fee2e2] text-[#991b1b] text-xs font-semibold px-3 py-1.5 rounded-lg border border-[#fca5a5]">
-            Price: ৳{animal.price}
+            Price: {animal.price}
           </span>
           <span className="bg-[#fef3c7] text-[#92400e] text-xs font-semibold px-3 py-1.5 rounded-lg">
             Weight: {animal.weight}
