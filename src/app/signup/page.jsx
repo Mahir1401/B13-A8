@@ -12,14 +12,14 @@ const SignUpPage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const useData = Object.fromEntries(formData.entries());
-    toast.success('Account created! Please check your email to verify.')
-    router.push('/signin')
     const { data, error } = await authClient.signUp.email({
       name: useData.name,
       email: useData.email,
       image: useData.image,
       password: useData.password,
     });
+    toast.success('Account created! Please check your email to verify.')
+    router.push('/signin')
   }
 
 

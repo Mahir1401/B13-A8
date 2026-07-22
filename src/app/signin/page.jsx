@@ -13,13 +13,12 @@ export default function SignInPage() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const useData = Object.fromEntries(formData.entries());
-    toast.success("Successfully logged in!!");
-    router.push("/");
     const { data, error } = await authClient.signIn.email({
       email: useData.email,
       password: useData.password,
     });
-    console.log(data, error);
+    toast.success("Successfully logged in!!");
+    router.push("/");
   };
 
   const handleGoogle = async () => {

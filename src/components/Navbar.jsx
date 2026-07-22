@@ -20,7 +20,6 @@ const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const user = data?.user;
-  console.log(user)
 
   function handleLogout() {
     signOut();
