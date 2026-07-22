@@ -1,6 +1,6 @@
 import Link from "next/link";
 import animals from "@/data/animals.json";
-// import AnimalCard from "@/components/AnimalCard";
+import AnimalCard from "@/components/AnimalCard";
 import Hero from "@/components/Hero";
 import { ScrollText, Scale, ShieldCheck, ArrowRight } from "lucide-react";
 
@@ -58,11 +58,11 @@ const HomePage = () => {
 
         <div className="ledger-rule my-8" />
 
-        {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((animal) => (
             <AnimalCard key={animal.id} animal={animal} />
           ))}
-        </div> */}
+        </div>
       </section>
 
       <section className="bg-hide-soft/5">
