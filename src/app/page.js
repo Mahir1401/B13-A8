@@ -1,7 +1,7 @@
 import Link from "next/link";
 import animals from "@/data/animals.json";
 // import AnimalCard from "@/components/AnimalCard";
-// import Hero from "@/components/Hero";
+import Hero from "@/components/Hero";
 import { ScrollText, Scale, ShieldCheck, ArrowRight } from "lucide-react";
 
 const TIPS = [
@@ -36,7 +36,7 @@ const HomePage = () => {
   const featured = animals.slice(0, 4);
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
 
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="flex items-end justify-between gap-4">
