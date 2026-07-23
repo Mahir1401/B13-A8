@@ -8,23 +8,36 @@ import { toast } from "react-toastify";
 
 export default function SignInPage() {
   const router = useRouter();
-  
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const useData = Object.fromEntries(formData.entries());
+    const userData = Object.fromEntries(formData.entries());
+
     const { data, error } = await authClient.signIn.email({
-      email: useData.email,
-      password: useData.password,
+      email: userData.email,
+      password: userData.password,
     });
+
+    if (error) {
+      toast.error("Invalid email or password.");
+      return;
+    }
+
     toast.success("Successfully logged in!!");
     router.push("/");
   };
 
   const handleGoogle = async () => {
-    const data = await authClient.signIn.social({
+    const { data, error } = await authClient.signIn.social({
       provider: "google",
     });
+
+    if (error) {
+      toast.error("Google sign-in failed.");
+      return;
+    }
+
     toast.success("Signed in with Google.");
   };
 
@@ -63,9 +76,7 @@ export default function SignInPage() {
             Password
           </Label>
           <Input
-            required
             type="password"
-            name="password"
             placeholder="Password"
             className="mt-1.5 w-full rounded-lg border border-white bg-transparent px-4 py-2.5 outline-none focus:border-oxblood"
           />
