@@ -1,8 +1,17 @@
-import { Form, Label, Input, TextField, FieldError } from "@heroui/react";
+"use client";
+
+import { Form, Label, Input, TextArea, TextField, FieldError } from "@heroui/react";
+import { toast } from "react-toastify";
 
 const BookingForm = () => {
+  const onSubmit = () => {
+    toast.success(
+      'Thank you!!Eid Mubarak!'
+    );
+  };
+
   return (
-    <Form className="mt-8 flex flex-col gap-4 text-white">
+    <Form onSubmit={onSubmit} className="mt-8 flex flex-col gap-4 text-white">
       <TextField isRequired name="name" validate={(value) => { if (value.length < 3) { return "Name must be at least 3 characters"; } return null; }}>
         <Label className="text-xs uppercase tracking-widest text-gray-400">
           Full name
@@ -15,7 +24,7 @@ const BookingForm = () => {
         <FieldError className="text-xs text-red-500 mt-1" />
       </TextField>
 
-      <TextField isRequired name="email">
+      <TextField isRequired name="email" type="email" validate={(value) => !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value) ? "Please enter a valid email address" : null}>
         <Label className="text-xs uppercase tracking-widest text-gray-400">
           Email
         </Label>
@@ -45,7 +54,7 @@ const BookingForm = () => {
         <Label className="text-xs uppercase tracking-widest text-gray-400">
           Delivery Address
         </Label>
-        <textarea
+        <TextArea
           name="address"
           rows={3}
           placeholder="House, road, area, district"
@@ -61,7 +70,6 @@ const BookingForm = () => {
         Confirm Booking
       </button>
     </Form>
-
   );
 };
 

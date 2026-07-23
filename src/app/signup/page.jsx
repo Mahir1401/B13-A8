@@ -25,8 +25,8 @@ const SignUpPage = () => {
       return;
     }
 
-    toast.success('Account created! Please check your email to verify.');
-    router.push('/signin');
+    toast.success('Account created!');
+    router.push('/');
   };
 
   const handleGoogle = async () => {

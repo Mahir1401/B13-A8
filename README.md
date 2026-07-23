@@ -5,7 +5,7 @@ sheep, and buffalo listed for Qurbani, view full details, and place a
 booking after logging in.
 
 ## Live URL
-_Add your deployed link here (Vercel/Render) after hosting._
+https://b13-a8-zimd-git-main-mahir1401s-projects.vercel.app/
 
 ## Key Features
 - Browse featured and full animal listings, sortable by price
@@ -22,7 +22,7 @@ _Add your deployed link here (Vercel/Render) after hosting._
 ## Tech / npm packages used
 - **Next.js 16 (App Router)** — routing and rendering
 - **Tailwind CSS v4** — styling and design tokens
-- **react-hot-toast** — toast notifications
+- **react-toastify** — toast notifications
 - **framer-motion** — hero entrance animation
 - **lucide-react** — icon set
 
